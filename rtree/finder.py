@@ -41,9 +41,9 @@ def load():
         lib_name = 'spatialindex_c-{}.dll'.format(arch)
 
         # add search paths for conda installs
-        if 'conda' in sys.version:
-            _candidates.append(
-                os.path.join(sys.prefix, "Library", "bin"))
+        # sys.version does not have 'conda' in it
+        _candidates.append(
+            os.path.join(sys.prefix, "Library", "bin"))
 
         # get the current PATH
         oldenv = os.environ.get('PATH', '').strip().rstrip(';')
